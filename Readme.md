@@ -12,7 +12,7 @@ The docker image, manifest files, and variables will be provided to you.  You ne
 Install ONE of the following on a VM or locally!
 
 - [docker desktop](https://docs.docker.com/desktop/) - easiest and preferred
-  - 🍎 If you are working on a Mac with an Apple chip—Docker Desktop is the easiest option:
+  - 🍎 If you are working with MacOS and an Apple chip—Docker Desktop is the easiest option:
     - Run [`softwareupdate --install-rosetta`](https://docs.docker.com/desktop/install/mac-install/#system-requirements)
     - Enable [Kubernetes](https://docs.docker.com/desktop/kubernetes/#install-and-turn-on-kubernetes)
     - Confirm `Use Virtualization framework` is enabled in Docker Desktop → General → Settings
@@ -28,6 +28,8 @@ Open up a command prompt or terminal.  Change the current directory in the termi
     - Install the NGINX Ingress Controller: `kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.9.5/deploy/static/provider/cloud/deploy.yaml`
     - If you are running rancher desktop or minikube
         - Run `kubectl describe service kubernetes`.  Copy the endpoint, for example `172.18.135.254:6443` for later.
+    - If you are running Docker Desktop with MacOS and an Apple chip:
+        - Run `docker network inspect bridge`.  Copy the gateway, for example `"Gateway": "172.17.0.1"` for later.
 
 ## 3. Pre-Configure Octopus
 Using your cloud instance of choice do the following:
@@ -49,6 +51,8 @@ Using your cloud instance of choice do the following:
     - If you are using docker desktop it should be: `https://kubernetes.docker.internal:6443/`
     - If you are running rancher desktop or minikube:
         - Use the endpoint IP address from earlier. For example `https://172.18.135.254:6443`
+        - If you are running Docker Desktop with MacOS and an Apple chip:
+          - Use the gateway IP address from earlier + port 6443. For example `172.17.0.1:6443`
     - Ensure the checkbox `Skip TLS Verification` is checked to make things easier.
     - Use the token account you created from earlier.
     - Use the Local K8s Worker Pool from earlier.
