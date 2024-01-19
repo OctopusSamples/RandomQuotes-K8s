@@ -51,8 +51,8 @@ Using your cloud instance of choice do the following:
     - If you are using docker desktop it should be: `https://kubernetes.docker.internal:6443/`
     - If you are running rancher desktop or minikube:
         - Use the endpoint IP address from earlier. For example `https://172.18.135.254:6443`
-        - If you are running Docker Desktop with MacOS and an Apple chip:
-          - Use the gateway IP address from earlier + port 6443. For example `172.17.0.1:6443`
+    - If you are running Docker Desktop with MacOS and an Apple chip:
+        - Use the gateway IP address from earlier + port 6443. For example `172.17.0.1:6443`
     - Ensure the checkbox `Skip TLS Verification` is checked to make things easier.
     - Use the token account you created from earlier.
     - Use the Local K8s Worker Pool from earlier.
